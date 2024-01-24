@@ -1,0 +1,46 @@
+<h1>Lịch sử gửi Mail</h1>
+<a href="/send-mail" class="btn btn-primary mb-3">Gửi mail</a>
+<div class="mx-auto" style="max-width: 400px;">
+  <% if (req?.msg) { %>
+    <div class="alert alert-success"  role="alert">
+      <%= req?.msg %>
+    </div>
+  <% } %>
+  <% if (req?.error) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= req?.error %>
+    </div>
+  <% } %>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th width="5%">STT</th>
+      <th>Email gửi đến</th>
+      <th>Tiêu đề</th>
+      <th>Trạng thái</th>
+      <th>Thời gian gửi</th>
+      <th width="10%" class="text-center">Nút</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if (data?.length === 0) { %>
+      <tr>
+        <td colspan="5" class="text-center" style="font-size: 20px;">Không có dữ liệu!</td>
+      </tr>
+    <% } else { %>
+      <% data.forEach((element, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= element.email %></td>
+          <td><%= element.title %></td>
+          <td><%= element.status ? "Đã đọc" : "Chưa đọc" %></td>
+          <td><%= element.created_at %></td>
+          <td>
+            <a href="/detail/<%= element.id %>" class="btn btn-warning">Xem chi tiết</a>
+          </td>
+        </tr>
+        <% }) %>
+    <% } %>
+  </tbody>
+</table>
