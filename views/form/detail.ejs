@@ -5,8 +5,9 @@
       </div>
       <div class="card-body">
         <h6 class="card-subtitle mb-2 text-muted">Trạng thái : <%= data.status ? 'đã đọc' : "chưa đọc" %></h6>
-        <p class="card-text"><%= data.content %></p>
-        <p class="card-text">Thời gian: <time id="currentTime"><%= data.created_at %></time></p>
+        <h6 class="card-subtitle mb-2 text-muted" style="display: inline-block;">Nội dung: </h6>
+        <p class="card-text" style="display: inline-block;"><%= data.content %></p>
+        <p class="card-text">Thời gian: <time id="currentTime"><%= getTime(data.created_at) %></time></p>
       </div>
     </div>
   </div>

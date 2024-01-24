@@ -15,10 +15,10 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th width="5%">STT</th>
+      <th width="5%" class="text-center">STT</th>
       <th>Email gửi đến</th>
       <th>Tiêu đề</th>
-      <th>Trạng thái</th>
+      <th class="text-center"  width="10%">Trạng thái</th>
       <th>Thời gian gửi</th>
       <th width="10%" class="text-center">Nút</th>
     </tr>
@@ -31,11 +31,11 @@
     <% } else { %>
       <% data.forEach((element, index) => { %>
         <tr>
-          <td><%= index + 1 %></td>
+          <td class="text-center"><%= index + 1 %></td>
           <td><%= element.email %></td>
           <td><%= element.title %></td>
-          <td><%= element.status ? "Đã đọc" : "Chưa đọc" %></td>
-          <td><%= element.created_at %></td>
+          <td  class="text-center" width="10%"><%= element.status ? "Đã đọc" : "Chưa đọc" %></td>
+          <td><%= getTime(element.created_at) %></td>
           <td>
             <a href="/detail/<%= element.id %>" class="btn btn-warning">Xem chi tiết</a>
           </td>

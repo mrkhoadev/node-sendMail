@@ -2,7 +2,7 @@ const sendMail = require("../utils/mail");
 const { HistoryEmail } = require("../models/index");
 const { string } = require("yup");
 const path = require('path');
-
+const getTime = require("../helper/getTime")
 const imgPath = path.join(__dirname, '../assets/images/test.png');
 
 
@@ -14,7 +14,7 @@ module.exports = {
                 ["id", "desc"]
             ],
         });
-        res.render("index", { data, req })
+        res.render("index", { data, req, getTime })
     },
     sendMail: async (req, res, next) => {
         res.render("form/sendMail", { req })
@@ -63,7 +63,7 @@ module.exports = {
             if (!data) {
                 throw new Error("Không tìm thấy!")
             }
-            res.render("form/detail", { data, req })
+            res.render("form/detail", { data, req, getTime })
         } catch (e) {
             return next(e)
         }
