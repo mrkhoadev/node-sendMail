@@ -36,7 +36,7 @@ module.exports = {
                     const info = await sendMail(
                         validate.email,
                         validate.title,
-                        `${validate.content} <img src="${process.env.HOSTING}/sendFile/${createData.id}" style="width: 10px; height: 10px;" alt="Tracking Pixel" />`,
+                        `${validate.content} <img src="${process.env.HOSTING}/sendFile/${createData.id}" style="width: 1px; height: 1px;" alt="Tracking Pixel" />`,
                     )
                     if (info) {
                         req.flash("msg", "Gửi thành công");
